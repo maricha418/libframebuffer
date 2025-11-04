@@ -11,6 +11,7 @@
 #include <sys/ioctl.h>
 
 #include "config.h"
+#include "framebuf.h"
 
 int fb_dev;
 uint32_t* fbp_real;
@@ -23,9 +24,6 @@ int fixed_fb_size;
 static struct termios orig_termios;
 struct fb_var_screeninfo vinfo;
 struct fb_fix_screeninfo finfo;
-
-int initfb(void);
-int getfbinfo(void);
 
 int initfb()
 {
@@ -99,6 +97,8 @@ int fbclean(void)
   close(fb_dev);
 }
 
+
+/*for debug*/
 int main()
 {
   initfb();
